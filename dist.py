@@ -97,6 +97,8 @@ def main():
             return False
         if filename == '.clang-format':
             return False
+        if filename == '.clang-tidy':
+            return False
         if filename == '.editorconfig':
             return False
         if filename.startswith('.'):
