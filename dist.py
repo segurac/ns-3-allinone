@@ -109,27 +109,6 @@ def main():
     print("Adding %s as %s" % (ns3_dir, os.path.join(dist_dir, new_ns3_dir)))
     tar_add_tree(tar, ns3_dir, os.path.join(dist_dir, new_ns3_dir), dir_excl, file_excl)
 
-    # add pybindgen
-    pybindgen_dir = config.getElementsByTagName("pybindgen")[0].getAttribute("dir")
-    new_pybindgen_dir = "pybindgen-%s" % config.getElementsByTagName("pybindgen")[0].getAttribute("version")
-    new_config.getElementsByTagName("pybindgen")[0].setAttribute("dir", new_pybindgen_dir)    
-    def dir_excl(reldirpath, dirname):
-        if dirname[0] == '.':
-            return True
-        if reldirpath == '' and dirname == 'build':
-            return True
-        return False
-    def file_excl(reldirpath, filename):
-        if filename.startswith('.'):
-            return True
-        if filename.endswith('.pyc') or filename.endswith('.pyo'):
-            return True
-        if filename.endswith('~'):
-            return True
-        return False
-    print("Adding %s as %s" % (pybindgen_dir, os.path.join(dist_dir, new_pybindgen_dir)))
-    tar_add_tree(tar, pybindgen_dir, os.path.join(dist_dir, new_pybindgen_dir), dir_excl, file_excl)
-
     # add NetAnim
     netanim_dir = config.getElementsByTagName("netanim")[0].getAttribute("dir");
     new_netanim_dir = config.getElementsByTagName("netanim")[0].getAttribute("version")
