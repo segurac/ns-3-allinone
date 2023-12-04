@@ -1,5 +1,8 @@
 
-NSNAM_CODE_BASE_URL = "https://gitlab.com/nsnam/ns-3-dev.git"
+NSNAM_CODE_BASE_URL = "https://github.com/segurac/ns-3-dev-git"
+NSNAM_CODE_BASE_URL_GIT = "git@github.com:segurac/ns-3-dev-git.git"
+
+
 
 # NetAnim
 NETANIM_REPO = "https://gitlab.com/nsnam/netanim.git"
